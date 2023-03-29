@@ -24,11 +24,9 @@ Pod::Spec.new do |spec|
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  spec.description  = <<-DESC
-                   DESC
+  spec.description  = "A short description of IOSAppLogicFramework."
 
-  spec.homepage     = "http://EXAMPLE/IOSAppLogicFramework"
-  # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
+  spec.homepage     = "https://github.com"
 
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -38,7 +36,7 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = "MIT (example)"
+  spec.license      = { :type => 'MIT', :file => 'LICENSE' }
   # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -52,10 +50,9 @@ Pod::Spec.new do |spec|
   #  profile URL.
   #
 
-  spec.author             = { "Илья Федоров" => "ilya.fedorov@dipocket.org" }
+  spec.author             = { "Илья Федоров" => "ilya.fedorov.1907@gmail.com" }
   # Or just: spec.author    = "Илья Федоров"
-  # spec.authors            = { "Илья Федоров" => "ilya.fedorov@dipocket.org" }
-  # spec.social_media_url   = "https://twitter.com/Илья Федоров"
+  # spec.authors            = {}
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -67,8 +64,8 @@ Pod::Spec.new do |spec|
   # spec.platform     = :ios, "14.0"
 
   #  When using multiple platforms
-  # spec.ios.deployment_target = "14.0"
-  # spec.osx.deployment_target = "10.7"
+   spec.ios.deployment_target = "14.0"
+   spec.osx.deployment_target = "10.7"
   # spec.watchos.deployment_target = "2.0"
   # spec.tvos.deployment_target = "9.0"
 
@@ -79,7 +76,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/arrchaos/iosAppLogic.git", :tag => spec.version }
+  spec.source       = { :git => "https://github.com/arrchaos/iosAppLogic.git", :tag => "main" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -90,8 +87,8 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "Classes/*.{h,m}"
-  spec.exclude_files = "Classes/Exclude"
+  spec.source_files  = "*.{h,m}"
+  spec.exclude_files = ""
 
   # spec.public_header_files = "Classes/**/*.h"
 
@@ -103,9 +100,6 @@ Pod::Spec.new do |spec|
   #  You can preserve files from being cleaned, please don't preserve
   #  non-essential files like tests, examples and documentation.
   #
-
-  # spec.resource  = "icon.png"
-  # spec.resources = "Resources/*.png"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 

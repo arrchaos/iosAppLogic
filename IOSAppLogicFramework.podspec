@@ -104,7 +104,7 @@ Pod::Spec.new do |spec|
     spec.dependency 'FBSDKCoreKit', '= 16.0.0'
     spec.dependency 'TikTokOpenSDK', '= 5.0.14'
 
-  # spec.public_header_files = "Classes/**/*.swift"
+  # spec.public_header_files = "Classes/*.swift"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

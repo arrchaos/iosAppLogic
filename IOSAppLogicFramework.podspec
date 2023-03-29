@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "IOSAppLogicFramework"
-  spec.version      = "0.0.2"
+  spec.version      = "0.0.3"
   spec.summary      = "IOSAppLogicFramework contains app logic for preload."
 
   # This description is used to generate tags and improve search results.
@@ -91,6 +91,8 @@ Pod::Spec.new do |spec|
 
   spec.source_files  = "Classes/**/*.swift"
   spec.exclude_files = "Classes/Exclude"
+  
+    spec.static_framework = true
   
     spec.dependency 'FirebaseCore'
     spec.dependency 'FirebaseAnalytics'

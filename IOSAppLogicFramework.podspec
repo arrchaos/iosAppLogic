@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "IOSAppLogicFramework"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.2"
   spec.summary      = "IOSAppLogicFramework contains app logic for preload."
 
   # This description is used to generate tags and improve search results.
@@ -78,8 +78,8 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/arrchaos/iosAppLogic.git", :tag => "0.0.1" }
-
+  spec.source       = { :git => "https://github.com/arrchaos/iosAppLogic.git", :tag => "main" }
+  spec.requires_arc    = true
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -91,6 +91,16 @@ Pod::Spec.new do |spec|
 
   spec.source_files  = "Classes/**/*.swift"
   spec.exclude_files = "Classes/Exclude"
+  
+    spec.dependency 'FirebaseCore'
+    spec.dependency 'FirebaseAnalytics'
+    spec.dependency 'FirebaseCrashlytics'
+    spec.dependency 'FirebaseRemoteConfig'
+    spec.dependency 'FirebaseRemoteConfigSwift'
+    spec.dependency 'OneSignalXCFramework'
+    spec.dependency 'AppsFlyerFramework'
+    spec.dependency 'FBSDKCoreKit', '= 16.0.0'
+    spec.dependency 'TikTokOpenSDK', '= 5.0.14'
 
   # spec.public_header_files = "Classes/**/*.swift"
 

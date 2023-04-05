@@ -31,7 +31,7 @@ class IDFAService: NSObject {
                         completion.perform(with: self.idfaModel)
                     case .notDetermined:
                         self.idfaModel.error = NSError.errorWith(message: "Пользователь ещё не получил запрос на авторизацию для доступа к IDFA.")
-                        completion.perform(with: self.idfaModel)
+                        self.requestTrackingAuthorization(completion: completion)
                     @unknown default:
                         break
                     }

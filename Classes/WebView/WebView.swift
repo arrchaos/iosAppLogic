@@ -14,7 +14,7 @@ struct WebView: UIViewRepresentable {
     
     private let webView = WKWebView()
     
-    public init(webViewModel: WWebViewModel) {
+    init(webViewModel: WWebViewModel) {
         self.webViewModel = webViewModel
     }
     

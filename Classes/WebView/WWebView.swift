@@ -11,7 +11,7 @@ public struct WWebView: View {
     
     @StateObject var webViewModel: WWebViewModel
     
-    init(_ webViewModel: WWebViewModel) {
+    public init(_ webViewModel: WWebViewModel) {
         _webViewModel = StateObject(wrappedValue: webViewModel)
     }
     

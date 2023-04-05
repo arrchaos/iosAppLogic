@@ -21,7 +21,7 @@ open class PreloadService: NSObject {
     
     public var preloadModel: PreloadModel = PreloadModel()
     
-    init(completionAction: CommandWith<Bool>) {
+    public init(completionAction: CommandWith<Bool>) {
         self.remoteConfigService = WRemoteConfigService()
         self.marketingService = WMarketingService()
         self.idfaService = IDFAService()

@@ -36,8 +36,20 @@ open class WWebViewModel: ObservableObject {
         let keys = conversionInfo.keys
         for key in keys {
             let keyStr:String = key as! String
-            let valueStr: String = conversionInfo[key] as! String
-            endUrlString = endUrlString.appending(String(format: "%@=%@&", keyStr.encodeUrl()!, valueStr.encodeUrl()!))
+            if let valueStr = (conversionInfo[key] as? String) {
+                endUrlString = endUrlString.appending(String(format: "%@=%@&", keyStr.encodeUrl()!, valueStr.encodeUrl()!))
+                continue
+            }
+            if let value = (conversionInfo[key] as? Bool) {
+                let appendStr = value ? "1" : "0"
+                endUrlString = endUrlString.appending(String(format: "%@=%@&", keyStr.encodeUrl()!, appendStr))
+                continue
+            }
+            if let valueInt = (conversionInfo[key] as? Int) {
+                let appendStr = String(valueInt)
+                endUrlString = endUrlString.appending(String(format: "%@=%i&", keyStr.encodeUrl()!, appendStr))
+                continue
+            }
         }
         
         endUrlString = endUrlString.appending(String(format: "uuid=%@&", self.uuid))

@@ -17,7 +17,7 @@ class WMarketingService: NSObject {
         self.completion = completion
         let appFlayerConfig = MarketingConfig.parseConfig()
         AppsFlyerLib.shared().appsFlyerDevKey = appFlayerConfig.appFlayerId
-        AppsFlyerLib.shared().appleAppID = appFlayerConfig.appFlayerId
+        AppsFlyerLib.shared().appleAppID = appFlayerConfig.appleAppId
         AppsFlyerLib.shared().delegate = self
     }
     

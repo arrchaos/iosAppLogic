@@ -10,10 +10,10 @@ import Foundation
 let urlKey = "urlKey"
 
 open class WWebViewModel: ObservableObject {
-    let baseURLStr: String
-    let conversionInfo: [AnyHashable: Any]
-    let uuid: String
-    let idfa: UUID
+    public let baseURLStr: String
+    public let conversionInfo: [AnyHashable: Any]
+    public let uuid: String
+    public let idfa: UUID
     
     @Published open var loading: Bool = false
     

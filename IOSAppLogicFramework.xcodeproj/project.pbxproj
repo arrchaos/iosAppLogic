@@ -43,7 +43,6 @@
 		093E4F0629D49FCF00248568 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093E4EF229D49FCF00248568 /* Command.swift */; };
 		097F8DD229D3488A00AD8E07 /* IOSAppLogicFramework.docc in Sources */ = {isa = PBXBuildFile; fileRef = 097F8DD129D3488A00AD8E07 /* IOSAppLogicFramework.docc */; };
 		097F8DD329D3488A00AD8E07 /* IOSAppLogicFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 097F8DD029D3488A00AD8E07 /* IOSAppLogicFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E4C3BCA384CC6E3E5C390506 /* Pods_IOSAppLogicFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D855A07B6B928F81079DB5C5 /* Pods_IOSAppLogicFramework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,9 +69,6 @@
 		097F8DCD29D3488A00AD8E07 /* IOSAppLogicFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IOSAppLogicFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		097F8DD029D3488A00AD8E07 /* IOSAppLogicFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSAppLogicFramework.h; sourceTree = "<group>"; };
 		097F8DD129D3488A00AD8E07 /* IOSAppLogicFramework.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = IOSAppLogicFramework.docc; sourceTree = "<group>"; };
-		269CF4DD2FCA1EF432BC21C2 /* Pods-IOSAppLogicFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSAppLogicFramework.debug.xcconfig"; path = "Target Support Files/Pods-IOSAppLogicFramework/Pods-IOSAppLogicFramework.debug.xcconfig"; sourceTree = "<group>"; };
-		D855A07B6B928F81079DB5C5 /* Pods_IOSAppLogicFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IOSAppLogicFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECCED1056861678472AB886E /* Pods-IOSAppLogicFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSAppLogicFramework.release.xcconfig"; path = "Target Support Files/Pods-IOSAppLogicFramework/Pods-IOSAppLogicFramework.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +76,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4C3BCA384CC6E3E5C390506 /* Pods_IOSAppLogicFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,7 +212,6 @@
 				097F8DCF29D3488A00AD8E07 /* IOSAppLogicFramework */,
 				097F8DCE29D3488A00AD8E07 /* Products */,
 				C0EDE46C1AD1464EE21D4B7D /* Pods */,
-				A710A405AAEFE0A412957E67 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -238,19 +232,9 @@
 			path = IOSAppLogicFramework;
 			sourceTree = "<group>";
 		};
-		A710A405AAEFE0A412957E67 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				D855A07B6B928F81079DB5C5 /* Pods_IOSAppLogicFramework.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		C0EDE46C1AD1464EE21D4B7D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				269CF4DD2FCA1EF432BC21C2 /* Pods-IOSAppLogicFramework.debug.xcconfig */,
-				ECCED1056861678472AB886E /* Pods-IOSAppLogicFramework.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -273,7 +257,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 097F8DD629D3488A00AD8E07 /* Build configuration list for PBXNativeTarget "IOSAppLogicFramework" */;
 			buildPhases = (
-				6E84345D4B203E136D39E4BA /* [CP] Check Pods Manifest.lock */,
 				097F8DC829D3488A00AD8E07 /* Headers */,
 				097F8DC929D3488A00AD8E07 /* Sources */,
 				097F8DCA29D3488A00AD8E07 /* Frameworks */,
@@ -351,28 +334,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\necho \"project\"\n# 1) Открываем \"${PROJECT_DIR}\"\nif [ \"true\" == ${ALREADYINVOKED:-false} ]\nthen\necho \"RECURSION: Detected, stopping\"\nelse\nexport ALREADYINVOKED=\"true\"\n\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-iosuniversal\n\n# 2) Переходим (либо создаем) папку с выходными файлами\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# 3) Билдим для устройства и симулятора\necho \"iphone\"\nxcodebuild -target \"${TARGET_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" build\n\necho \"iphonesim\"\nxcodebuild -target \"${TARGET_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" build\n\n# 4) Копируем из папки Debug-iphoneos в папку universal\necho \"universal\"\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\n# 5) Копируем swift modules\necho \"iphone simulator path\"\nSIMULATOR_SWIFT_MODULES_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule/.\"\nif [ -d \"${SIMULATOR_SWIFT_MODULES_DIR}\" ]; then\ncp -R \"${SIMULATOR_SWIFT_MODULES_DIR}\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule\"\nfi\n\n# 6) С помощью lipo создаем universal framework\necho \"lipo create\"\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n\necho \"end\"\nfi\n";
-		};
-		6E84345D4B203E136D39E4BA /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-IOSAppLogicFramework-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -463,6 +424,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -519,6 +481,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -530,7 +493,6 @@
 		};
 		097F8DD729D3488A00AD8E07 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 269CF4DD2FCA1EF432BC21C2 /* Pods-IOSAppLogicFramework.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -561,7 +523,6 @@
 		};
 		097F8DD829D3488A00AD8E07 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ECCED1056861678472AB886E /* Pods-IOSAppLogicFramework.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

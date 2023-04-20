@@ -1,6 +1,0 @@
-framework module Pods_IOSAppLogicFramework {
-  umbrella header "Pods-IOSAppLogicFramework-umbrella.h"
-
-  export *
-  module * { export * }
-}
